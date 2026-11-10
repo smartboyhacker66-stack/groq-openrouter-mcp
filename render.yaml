@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: groq-openrouter-mcp
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: MCP_SECRET
+        generateValue: true
+      - key: JAVA_OPTS
+        value: "-Xmx300m"
